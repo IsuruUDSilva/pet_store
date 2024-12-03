@@ -4,7 +4,7 @@ import Paw from "../../assets/icons/paw";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { signUpStart, signUpSuccess, signUpFailure } from "../../store/userSlice";
-import { signupUser } from "../../store/reducers/userSlice";
+import { signupUser } from "../../store/user/userSlice";
 
 // Define the types for formData state
 interface FormData {

@@ -1,22 +1,13 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Navigate, Outlet } from 'react-router-dom';
 import { RootState } from '../store/store';
 
-interface ProtectedRouteProps {
-    children: React.ReactElement;
-}
+const ProtectedRoute: React.FC = () => {
+    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+    console.log('Is Authenticated:', isAuthenticated);
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-    const isAuthenticated = useSelector(
-        (state: RootState) => state.auth.isAuthenticated
-    );
-
-    if (!isAuthenticated) {
-        return <Navigate to="/" />;
-    }
-
-    return children;
+    return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;
