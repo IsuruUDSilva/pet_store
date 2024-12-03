@@ -1,0 +1,48 @@
+{
+  "birds": {
+    "food": [
+      {
+        "name": "Bird Seed Mix",
+        "price": 8.99,
+        "image": "url_to_image_19",
+        "availability": "yes"
+      },
+      {
+        "name": "Pellets for Parrots",
+        "price": 11.99,
+        "image": "url_to_image_20",
+        "availability": "yes"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Bird Perch",
+        "price": 13.99,
+        "image": "url_to_image_21",
+        "availability": "yes"
+      },
+      {
+        "name": "Bird Water Feeder",
+        "price": 7.99,
+        "image": "url_to_image_22",
+        "availability": "yes"
+      }
+    ],
+    "cage": [
+      {
+        "name": "Bird Cage - Large",
+        "price": 79.99,
+        "image": "url_to_image_23",
+        "availability": "yes"
+      }
+    ],
+    "medicine": [
+      {
+        "name": "Bird Vitamins",
+        "price": 16.99,
+        "image": "url_to_image_24",
+        "availability": "no"
+      }
+    ]
+  }
+}

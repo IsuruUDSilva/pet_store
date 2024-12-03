@@ -1,0 +1,48 @@
+{
+  "small_pets": {
+    "food": [
+      {
+        "name": "Rabbit Pellets",
+        "price": 12.99,
+        "image": "url_to_image_25",
+        "availability": "yes"
+      },
+      {
+        "name": "Guinea Pig Hay",
+        "price": 8.99,
+        "image": "url_to_image_26",
+        "availability": "yes"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Hamster Wheel",
+        "price": 9.99,
+        "image": "url_to_image_27",
+        "availability": "yes"
+      },
+      {
+        "name": "Guinea Pig Cage",
+        "price": 39.99,
+        "image": "url_to_image_28",
+        "availability": "yes"
+      }
+    ],
+    "cage": [
+      {
+        "name": "Small Pet Cage - Medium",
+        "price": 35.99,
+        "image": "url_to_image_29",
+        "availability": "yes"
+      }
+    ],
+    "other": [
+      {
+        "name": "Small Pet Toy - Tunnel",
+        "price": 4.99,
+        "image": "url_to_image_30",
+        "availability": "yes"
+      }
+    ]
+  }
+}

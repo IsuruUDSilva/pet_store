@@ -1,0 +1,48 @@
+{
+  "aquatic": {
+    "food": [
+      {
+        "name": "Fish Flakes",
+        "price": 6.99,
+        "image": "url_to_image_13",
+        "availability": "yes"
+      },
+      {
+        "name": "Frozen Fish Food",
+        "price": 9.99,
+        "image": "url_to_image_14",
+        "availability": "yes"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Fish Tank Filter",
+        "price": 19.99,
+        "image": "url_to_image_15",
+        "availability": "yes"
+      },
+      {
+        "name": "Aquarium Light",
+        "price": 14.99,
+        "image": "url_to_image_16",
+        "availability": "yes"
+      }
+    ],
+    "cage": [
+      {
+        "name": "Fish Tank - 10 Gallons",
+        "price": 49.99,
+        "image": "url_to_image_17",
+        "availability": "yes"
+      }
+    ],
+    "other": [
+      {
+        "name": "Aquarium Decorations",
+        "price": 12.99,
+        "image": "url_to_image_18",
+        "availability": "yes"
+      }
+    ]
+  }
+}

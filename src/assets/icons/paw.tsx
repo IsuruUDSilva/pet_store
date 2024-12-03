@@ -9,14 +9,14 @@ const Paw: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
             xmlnsXlink="http://www.w3.org/1999/xlink"
             x="0px"
             y="0px"
-            width="100%"
+            width="15"
             viewBox="0 0 374 374"
             enableBackground="new 0 0 374 374"
             xmlSpace="preserve"
             {...props}
         >
             <path
-                fill="#FEFEFE"
+                fill="none"
                 opacity="1.000000"
                 stroke="none"
                 d="

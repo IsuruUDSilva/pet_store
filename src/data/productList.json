@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Dog",
+      "catogory": "dog",
+      "imgSrc": "src/assets/images/dog.png"
+    },
+    {
+      "id": 2,
+      "title": "Cat",
+      "catogory": "cat",
+      "imgSrc": "src/assets/images/cat1.png"
+    },
+    {
+      "id": 3,
+      "title": "Aquatic",
+      "catogory": "aquatic",
+      "imgSrc": "src/assets/images/fish1.png"
+    },
+    {
+      "id": 4,
+      "title": "Bird",
+      "catogory": "bird",
+      "imgSrc": "src/assets/images/parrot1.png"
+    },
+    {
+      "id": 5,
+      "title": "Small Pets",
+      "catogory": "small_pets",
+      "imgSrc": "src/assets/images/ginipig1.png"
+    }
+  ]
+}

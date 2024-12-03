@@ -1,0 +1,48 @@
+{
+  "cat": {
+    "food": [
+      {
+        "name": "Gourmet Cat Food",
+        "price": 24.99,
+        "image": "url_to_image_7",
+        "availability": "yes"
+      },
+      {
+        "name": "Catnip Treats",
+        "price": 10.99,
+        "image": "url_to_image_8",
+        "availability": "yes"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Cat Collar",
+        "price": 6.99,
+        "image": "url_to_image_9",
+        "availability": "yes"
+      },
+      {
+        "name": "Litter Box",
+        "price": 14.99,
+        "image": "url_to_image_10",
+        "availability": "yes"
+      }
+    ],
+    "medicine": [
+      {
+        "name": "Cat Flea Treatment",
+        "price": 18.99,
+        "image": "url_to_image_11",
+        "availability": "yes"
+      }
+    ],
+    "other": [
+      {
+        "name": "Interactive Cat Toy",
+        "price": 7.99,
+        "image": "url_to_image_12",
+        "availability": "yes"
+      }
+    ]
+  }
+}

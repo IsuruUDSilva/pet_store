@@ -1,0 +1,28 @@
+{
+  "featured": [
+    {
+      "name": "Fish Flakes",
+      "price": 6.99,
+      "image": "url_to_image_13",
+      "availability": true
+    },
+    {
+      "name": "Fish Tank Filter",
+      "price": 19.99,
+      "image": "url_to_image_15",
+      "availability": true
+    },
+    {
+      "name": "Gourmet Cat Food",
+      "price": 24.99,
+      "image": "url_to_image_7",
+      "availability": true
+    },
+    {
+      "name": "Cat Flea Treatment",
+      "price": 18.99,
+      "image": "url_to_image_11",
+      "availability": true
+    }
+  ]
+}

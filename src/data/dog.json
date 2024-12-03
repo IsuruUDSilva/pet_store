@@ -1,0 +1,48 @@
+{
+  "dog": {
+    "food": [
+      {
+        "name": "Premium Dog Food",
+        "price": 29.99,
+        "image": "url_to_image_1",
+        "availability": "yes"
+      },
+      {
+        "name": "Chicken Dog Treats",
+        "price": 15.99,
+        "image": "url_to_image_2",
+        "availability": "yes"
+      }
+    ],
+    "equipment": [
+      {
+        "name": "Dog Leash",
+        "price": 12.99,
+        "image": "url_to_image_3",
+        "availability": "yes"
+      },
+      {
+        "name": "Dog Bowl",
+        "price": 8.99,
+        "image": "url_to_image_4",
+        "availability": "yes"
+      }
+    ],
+    "medicine": [
+      {
+        "name": "Flea Treatment for Dogs",
+        "price": 19.99,
+        "image": "url_to_image_5",
+        "availability": "no"
+      }
+    ],
+    "other": [
+      {
+        "name": "Dog Toys - Rope",
+        "price": 5.99,
+        "image": "url_to_image_6",
+        "availability": "yes"
+      }
+    ]
+  }
+}

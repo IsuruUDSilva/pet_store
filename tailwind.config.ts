@@ -38,6 +38,8 @@ module.exports = {
       zinc: {
         800: "#1f2937", // Dark background for input in dark mode
       },
+      red: "#D91656",
+      green: "#355F2E",
     },
     extend: {
       fontFamily: {
