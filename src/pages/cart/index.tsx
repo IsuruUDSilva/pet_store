@@ -2,7 +2,7 @@ type Props = {}
 
 const ShoppingCart = (props: Props) => {
     return (
-        <div>ShoppingCart</div>
+        <div>xkclkzxlck</div>
     )
 }
 
