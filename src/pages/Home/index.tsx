@@ -24,7 +24,7 @@ const Home = (props: Props) => {
     const [isBuying, setIsBuying] = useState(false);
     const [itemBuy, setItemBuy] = useState<Item>();
     const [productList, setproductList] = useState();
-    const [catogory, setCatogory] = useState<any>();
+    const [catogory, setCatogory] = useState<any>(dog);
     const handleBuy = (item: Item) => {
         setIsBuying(true);
         setItemBuy(item);
@@ -39,6 +39,8 @@ const Home = (props: Props) => {
             setCatogory(dog)
         } else if (catogaryData === 'bird') {
             setCatogory(birds)
+        } else if (catogaryData === 'aquatic') {
+            setCatogory(aquatic)
         } else {
             setCatogory(small_pets)
         }
@@ -49,7 +51,7 @@ const Home = (props: Props) => {
                 <img src="src\assets\logos\petStore.webp" alt="" />
             </div>
             <NavbarDemo />
-            <div>
+            <div className="px-8">
                 <div className="text-2xl font-bold text-special-text-color text-center">
                     Select Your Pet
                 </div>

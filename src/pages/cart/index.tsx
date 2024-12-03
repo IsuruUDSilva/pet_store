@@ -1,20 +1,40 @@
-import { useDispatch } from "react-redux"
-import { RootState } from "../../store/store"
-import { useSelector } from "react-redux"
-import { decrement, increment, incrementByAmount } from "../../store/counter/counterSlice"
+import { useState } from "react";
+import Modal from "../../components/modal";
 
+type Item = {
+    name: string;
+    price: number;
+    image: string;
+    availability: boolean;
+};
 type Props = {}
 
 const ShoppingCart = (props: Props) => {
 
-    const counter = useSelector((state: RootState) => state.counter.value)
-    const dispatch = useDispatch()
+    const [isBuying, setIsBuying] = useState(true);
+    const [itemBuy, setItemBuy] = useState<Item>();
+    const [productList, setproductList] = useState();
+    const [catogory, setCatogory] = useState<any>();
+    const handleBuy = (item: Item) => {
+        setIsBuying(true);
+        setItemBuy(item);
+    };
+    const handleCloseModal = () => {
+        setIsBuying(false);
+    };
+
     return (
-        <div>
-            <div>{counter}</div>
-            <button onClick={() => dispatch(increment())}>increment</button>
-            <button onClick={() => dispatch(decrement())}>decrement</button>
-            <button onClick={() => dispatch(incrementByAmount(10))}>decrement</button>
+        <div className="w-full">
+            <div className="w-full grid grid-cols-3">
+                <div className="w-full justify-items-center ">
+                    <img src="src\assets\logos\petStore.webp" alt="" className="h-52" />
+                </div>
+                <div className="text-special-text-color text-xl text-center">
+                    milk powder
+                </div>
+                <div className="font-bold">{itemBuy?.price} USD</div>
+
+            </div>
         </div>
     )
 }

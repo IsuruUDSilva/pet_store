@@ -36,6 +36,14 @@
         "availability": "no"
       }
     ],
+    "cage": [
+      {
+        "name": "Bird Cage - Large",
+        "price": 79.99,
+        "image": "url_to_image_23",
+        "availability": "yes"
+      }
+    ],
     "other": [
       {
         "name": "Dog Toys - Rope",
