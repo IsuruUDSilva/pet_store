@@ -8,26 +8,26 @@ type Item = {
 };
 
 type Props = {
+  petName: string;
   catogoryData: Record<string, Item[]>;
   handleBuyItem: (item: Item) => void;
 };
 
 const ProductListing = (props: Props) => {
   const categories = ["food", "equipment", "cage", "medicine", "other"];
-
   return (
-    <div>
+    <div id="products" className='pt-24 px-3 md:px-10'><h2 className='font-bold text-special-text-color text-2xl md:text-3xl text-center lg:text-left mb-4 lg:ml-14 capitalize'>{props.petName} Products</h2>
       {categories.map((category) => (
         <div key={category}>
-          <div className="text-2xl font-bold mb-4 ml-14">
+          <div className="text-center lg:text-left text-2xl font-bold mb-4 lg:ml-14">
             {category.charAt(0).toUpperCase() + category.slice(1)} Items
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row flex-wrap justify-center lg:justify-start">
             {props.catogoryData?.[category]?.length > 0 ? (
               props.catogoryData[category].map((item, index) => (
                 <div
                   key={item.name + index}
-                  className="rounded-xl m-10 p-5 w-60 shadow-xl bg-primary-bg"
+                  className="rounded-xl m-10 p-5 w-60 shadow-xl bg-primary-bg flex flex-col items-center"
                 >
                   <div className="h-32 w-40">
                     <img
@@ -36,7 +36,7 @@ const ProductListing = (props: Props) => {
                       className="w-32"
                     />
                   </div>
-                  <h2 className="h-12 text-left text-2xl md:text-xl font-semibold tracking-[-0.015em] text-special-text-color">
+                  <h2 className="h-12 text-center lg:text-left text-lg md:text-xl font-semibold tracking-[-0.015em] text-special-text-color pb-5">
                     {item.name}
                   </h2>
 

@@ -20,9 +20,9 @@ export const HoverEffect = ({
     const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
 
     return (
-        <div
+        <a href="#products"
             className={cn(
-                "grid grid-cols-3 md:grid-cols-5 py-10 gap-4",
+                "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 py-4 lg:py-10 gap-2 md:gap-4",
                 className
             )}
         >
@@ -63,7 +63,7 @@ export const HoverEffect = ({
                     </Card>
                 </div>
             ))}
-        </div>
+        </a>
     );
 };
 
@@ -83,14 +83,14 @@ export const Card = ({
     return (
         <div
             className={cn(
-                "rounded-2xl h-full w-full p-4 overflow-hidden bg-secondary border border-transparent dark:border-white/[0.2] group-hover:border-zinc-800 relative z-20",
+                "rounded-2xl h-12 md:h-20 lg:h-full w-full md:p-2 lg:p-4 overflow-hidden bg-secondary border border-transparent dark:border-white/[0.2] group-hover:border-zinc-800 relative z-20",
                 className
             )}
             onClick={() => handleClick(catogory)}
         >
-            <img src={imgSrc} alt="dog" className="absolute w-20" />
+            <img src={imgSrc} alt="dog" className="absolute bottom-1 lg:bottom-3 w-10 md:w-20" />
             <div className="relative z-50">
-                <div className="p-4">{children}</div>
+                <div className="md:p-2 lg:p-4">{children}</div>
             </div>
         </div>
     );

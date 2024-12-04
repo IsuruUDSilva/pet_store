@@ -26,6 +26,7 @@ const Home = () => {
     const [isBuying, setIsBuying] = useState(false);
     const [itemBuy, setItemBuy] = useState<Item>();
     const [catogory, setCatogory] = useState<any>(dog);
+    const [catogoryName, setCatogoryName] = useState<any>('dog');
     const handleAddItem = () => {
         if (itemBuy) {
             dispatch(addItem({ id: Math.floor(Math.random() * 100) + 1, name: itemBuy.name, price: itemBuy.price, quantity: 1 }));
@@ -42,34 +43,42 @@ const Home = () => {
     const productListing = (catogaryData: string) => {
         if (catogaryData === 'cat') {
             setCatogory(cat)
+            setCatogoryName('cat')
         } else if (catogaryData === 'dog') {
             setCatogory(dog)
+            setCatogoryName('dog')
         } else if (catogaryData === 'bird') {
             setCatogory(birds)
+            setCatogoryName('bird')
         } else if (catogaryData === 'aquatic') {
             setCatogory(aquatic)
+            setCatogoryName('aquatic')
         } else {
             setCatogory(small_pets)
+            setCatogoryName('small pets')
         }
     };
     return (
         <>
-            <div className="w-60 h-40">
-                <img src="src\assets\logos\petStore.webp" alt="" />
+            <div className="pt-20 lg:pt-0 flex items-center lg:block">
+                <img src="src\assets\logos\petStore.webp" alt="" className="w-24 lg:w-60" />
+                <div className="lg:hidden text-2xl font-bold text-special-text-color text-center w-full lg:text -left lg:w-auto">
+                    Select Your Pet
+                </div>
             </div>
             <NavbarDemo />
             <div className="px-8">
-                <div className="text-2xl font-bold text-special-text-color text-center">
+                <div className="hidden lg:block text-2xl font-bold text-special-text-color text-center">
                     Select Your Pet
                 </div>
                 <HoverEffect items={products} handleClick={productListing} />
             </div>
-            <div className="text-2xl font-bold text-special-text-color pl-28">
+            <div className="text-2xl font-bold text-special-text-color text-center lg:text-left lg:pl-28 pb-5">
                 Featured Products
             </div>
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-col gap-3 md:gap-6 md:flex-row justify-center lg:justify-start items-center mb-10 lg:mb-0 px-10 flex-wrap">
                 {featured.map((item: Item, index) => (
-                    <div key={item.name + index} className="rounded-xl m-10 p-5 w-60 shadow-xl bg-primary-bg">
+                    <div key={item.name + index} className="flex flex-col items-center rounded-xl max-w-52 lg:m-10  lg:p-5 lg:w-60 shadow-xl bg-primary-bg">
                         <div className="h-32 w-40">
                             <img
                                 src="src\assets\logos\petStore.webp"
@@ -77,7 +86,7 @@ const Home = () => {
                                 className="w-32"
                             />
                         </div>
-                        <h2 className="h-12 text-left text-2xl md:text-xl font-semibold tracking-[-0.015em] text-special-text-color">
+                        <h2 className="h-12 text-center lg:text-left text-lg md:text-xl font-semibold tracking-[-0.015em] text-special-text-color pb-5">
                             {item.name}
                         </h2>
 
@@ -101,7 +110,7 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            <ProductListing catogoryData={catogory} handleBuyItem={handleBuy} />
+            <ProductListing petName={catogoryName} catogoryData={catogory} handleBuyItem={handleBuy} />
             <Modal isOpen={isBuying} onClose={handleCloseModal}>
                 <div className="text-special-text-color text-xl text-center">
                     {itemBuy?.name}
