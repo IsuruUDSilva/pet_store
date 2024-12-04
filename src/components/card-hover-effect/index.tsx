@@ -20,7 +20,7 @@ export const HoverEffect = ({
     const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
 
     return (
-        <div
+        <a href="#products"
             className={cn(
                 "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 py-4 lg:py-10 gap-2 md:gap-4",
                 className
@@ -63,7 +63,7 @@ export const HoverEffect = ({
                     </Card>
                 </div>
             ))}
-        </div>
+        </a>
     );
 };
 

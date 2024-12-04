@@ -31,6 +31,7 @@ const Home = (props: Props) => {
     const [itemBuy, setItemBuy] = useState<Item>();
     const [productList, setproductList] = useState();
     const [catogory, setCatogory] = useState<any>(dog);
+    const [catogoryName, setCatogoryName] = useState<any>('dog');
     const handleAddItem = () => {
         if (itemBuy) {
             dispatch(addItem({ id: Math.floor(Math.random() * 100) + 1, name: itemBuy.name, price: itemBuy.price, quantity: 1 }));
@@ -47,21 +48,26 @@ const Home = (props: Props) => {
     const productListing = (catogaryData: string) => {
         if (catogaryData === 'cat') {
             setCatogory(cat)
+            setCatogoryName('cat')
         } else if (catogaryData === 'dog') {
             setCatogory(dog)
+            setCatogoryName('dog')
         } else if (catogaryData === 'bird') {
             setCatogory(birds)
+            setCatogoryName('bird')
         } else if (catogaryData === 'aquatic') {
             setCatogory(aquatic)
+            setCatogoryName('aquatic')
         } else {
             setCatogory(small_pets)
+            setCatogoryName('small pets')
         }
     };
     return (
         <>
             <div className="pt-20 lg:pt-0 flex items-center lg:block">
-                <img src="src\assets\logos\petStore.webp" alt="" className=" w-24 lg:w-60 lg:h-40" />
-                <div className="lg:hidden text-2xl font-bold text-special-text-color">
+                <img src="src\assets\logos\petStore.webp" alt="" className="w-24 lg:w-60" />
+                <div className="lg:hidden text-2xl font-bold text-special-text-color text-center w-full lg:text -left lg:w-auto">
                     Select Your Pet
                 </div>
             </div>
@@ -72,10 +78,10 @@ const Home = (props: Props) => {
                 </div>
                 <HoverEffect items={products} handleClick={productListing} />
             </div>
-            <div className="text-2xl font-bold text-special-text-color text-center md:text-left lg:pl-28">
+            <div className="text-2xl font-bold text-special-text-color text-center lg:text-left lg:pl-28 pb-5">
                 Featured Products
             </div>
-            <div className="flex flex-col gap-3 md:gap-0 md:flex-row justify-center items-center mb-10 lg:mb-0">
+            <div className="flex flex-col gap-3 md:gap-6 md:flex-row justify-center lg:justify-start items-center mb-10 lg:mb-0 px-10 flex-wrap">
                 {featured.map((item: Item, index) => (
                     <div key={item.name + index} className="flex flex-col items-center rounded-xl max-w-52 lg:m-10  lg:p-5 lg:w-60 shadow-xl bg-primary-bg">
                         <div className="h-32 w-40">
@@ -109,7 +115,7 @@ const Home = (props: Props) => {
                     </div>
                 ))}
             </div>
-            <ProductListing catogoryData={catogory} handleBuyItem={handleBuy} />
+            <ProductListing petName={catogoryName} catogoryData={catogory} handleBuyItem={handleBuy} />
             <Modal isOpen={isBuying} onClose={handleCloseModal}>
                 <div className="text-special-text-color text-xl text-center">
                     {itemBuy?.name}
