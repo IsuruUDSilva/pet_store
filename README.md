@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Shopping Cart Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **Shopping Cart Application** built using React, Redux, Vite, and TailwindCSS. It allows users to sign up, log in, manage their shopping cart, and proceed to checkout.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Features**
 
-## Expanding the ESLint configuration
+1. **Authentication**:
+   - Initial login details:
+     - Email: `test@test.com`
+     - Password: `Paswrd@1`
+   - Users can sign up with new credentials.
+2. **Shopping Cart**:
+   - Add items to the cart.
+   - Increase or decrease item quantities.
+   - Remove items from the cart.
+   - Clear the entire cart.
+3. **Checkout**:
+   - Includes a form to collect user details (name, email, address, phone).
+   - Calculates the total price of items in the cart.
+4. **Responsive Design**:
+   - Styled with TailwindCSS for a clean and mobile-friendly interface.
+5. **UI Components**:
+   - Integrated with [Aceternity UI](https://ui.aceternity.com/) for modern and consistent UI components.
+6. **State Management**:
+   - Redux is used to manage the global state for authentication and cart functionality.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## **Tech Stack**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Frontend**: React + Vite
+- **State Management**: Redux Toolkit
+- **Styling**: TailwindCSS
+- **UI Components**: Aceternity UI
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## **Getting Started**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### **Installation**
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/shopping-cart.git
+   cd shopping-cart
+   ```
