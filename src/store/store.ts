@@ -1,13 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage"; // Defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
-import authReducer from "./user/userSlice"; // Your auth reducer
+import authReducer from "./user/userSlice";
 import cartReducer from "./shopingCart/shopingCartSlice";
 
-// Redux-persist configuration
 const persistConfig = {
-  key: "auth", // Key for localStorage
-  storage, // Use localStorage
+  key: "auth",
+  storage,
 };
 
 const rootReducer = combineReducers({
@@ -20,11 +19,11 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"], // Ignore these actions
+        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
       },
     }),
 });
 
-export const persistor = persistStore(store); // Export persistor for use in <PersistGate>
+export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

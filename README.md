@@ -8,7 +8,7 @@ This is a **Shopping Cart Application** built using React, Redux, Vite, and Tail
 
 1. **Authentication**:
    - Initial login details:
-     - Email: `test@test.com`
+     - Email: `test@email.com`
      - Password: `Paswrd@1`
    - Users can sign up with new credentials.
 2. **Shopping Cart**:
@@ -63,7 +63,7 @@ This is a **Shopping Cart Application** built using React, Redux, Vite, and Tail
 
 ### **Initial Login Details**
 
-- **Email**: `test@test.com`
+- **Email**: `test@email.com`
 - **Password**: `Paswrd@1`
 
 You can also sign up with a new user.
@@ -96,7 +96,7 @@ src/
 
 ### **Usage**
 
-1. Log in using the provided credentials (`test@test.com` / `Paswrd@1`) or sign up with new credentials.
+1. Log in using the provided credentials (`test@email.com` / `Paswrd@1`) or sign up with new credentials.
 2. Add items to your cart from the product list.
 3. **Manage your cart**:
    - Increase or decrease item quantities.

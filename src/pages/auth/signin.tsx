@@ -1,5 +1,5 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup"; // For validation
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import Paw from "../../assets/icons/paw";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,16 +7,13 @@ import { RootState } from "../../store/store";
 import { useState } from "react";
 import { Input } from "../../components/input";
 
-type Props = {};
-
-const SignIn = (props: Props) => {
+const SignIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
     const { users } = useSelector((state: RootState) => state.auth);
 
-    // Validation schema using Yup
     const validationSchema = Yup.object({
         email: Yup.string().email("Invalid email format").required("Required"),
         password: Yup.string().min(6, "Password must be at least 6 characters").required("Required"),
@@ -25,7 +22,6 @@ const SignIn = (props: Props) => {
     const handleLogin = (values: { email: string; password: string }) => {
         setIsLoading(true);
 
-        // Simulate authentication
         const user = users.find((u) => u.email === values.email && u.password === values.password);
         if (user) {
             dispatch({ type: "auth/signupUser/fulfilled", payload: user });

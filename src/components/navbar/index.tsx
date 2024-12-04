@@ -5,8 +5,8 @@ import { cn } from "../../utils";
 import { products } from "../../data/productList.json";
 import Modal from "../modal";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/user/userSlice"; // Update the path based on your folder structure
-import { RootState } from "../../store/store"; // Update the path based on your folder structure
+import { logout } from "../../store/user/userSlice";
+import { RootState } from "../../store/store";
 import { Link, useNavigate } from "react-router-dom";
 
 export function NavbarDemo() {

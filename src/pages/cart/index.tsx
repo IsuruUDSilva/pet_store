@@ -10,7 +10,7 @@ import {
     clearCart
 } from "../../store/shopingCart/shopingCartSlice";
 import { Input } from "../../components/input";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Paw from "../../assets/icons/paw";
 import { Link } from "react-router-dom";
@@ -55,7 +55,7 @@ const ShoppingCart = () => {
     const handleCloseModal = () => {
         setIsBuying(false);
     };
-    const handleSubmit = (values: any) => {
+    const handleSubmit = () => {
         alert("Checkout successful!");
         dispatch(clearCart());
         setIsBuying(false);

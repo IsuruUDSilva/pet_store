@@ -3,19 +3,15 @@ import { products } from "../../data/productList.json";
 import { NavbarDemo } from "../../components/navbar";
 import { featured } from "../../data/featuredItems.json";
 import Modal from "../../components/modal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductListing from "../../components/productListing";
 import { useDispatch } from "react-redux";
-import { RootState } from "../../store/store";
 import { aquatic } from "../../data/aquatic.json";
 import { cat } from "../../data/cat.json";
 import { dog } from "../../data/dog.json";
 import { small_pets } from "../../data/smallPets.json";
 import { birds } from "../../data/bird.json";
 import { addItem } from "../../store/shopingCart/shopingCartSlice";
-import { v4 as uuidv4 } from "uuid";
-
-type Props = {};
 
 type Item = {
     name: string;
@@ -25,11 +21,10 @@ type Item = {
 };
 
 
-const Home = (props: Props) => {
+const Home = () => {
     const dispatch = useDispatch();
     const [isBuying, setIsBuying] = useState(false);
     const [itemBuy, setItemBuy] = useState<Item>();
-    const [productList, setproductList] = useState();
     const [catogory, setCatogory] = useState<any>(dog);
     const handleAddItem = () => {
         if (itemBuy) {

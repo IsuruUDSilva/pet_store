@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { signupUser } from "../../store/user/userSlice";
@@ -27,6 +27,7 @@ const SignUp = (): JSX.Element => {
     });
 
     const handleSubmit = async (values: typeof initialValues, { setSubmitting }: any) => {
+        setIsLoading(true)
         try {
             await dispatch(signupUser(values)).unwrap();
             alert("Signup successful!");
@@ -36,6 +37,7 @@ const SignUp = (): JSX.Element => {
         } finally {
             setSubmitting(false);
         }
+        setIsLoading(false)
     };
 
     return (
