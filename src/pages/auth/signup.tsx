@@ -1,108 +1,129 @@
-import { useState, ChangeEvent, FormEvent } from "react";
-import { Input } from "../../components/input";
-import Paw from "../../assets/icons/paw";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-// import { signUpStart, signUpSuccess, signUpFailure } from "../../store/userSlice";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 import { signupUser } from "../../store/user/userSlice";
+import Paw from "../../assets/icons/paw";
+import { Link, useNavigate } from "react-router-dom";
+import { Input } from "../../components/input";
+import { useState } from "react";
 
-// Define the types for formData state
-interface FormData {
-    name: string;
-    email: string;
-    password: string;
-}
-
-type Props = {};
-
-// Simulating an API call with TypeScript type for userData
-const fakeApiCall = (userData: FormData): Promise<any> => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (userData.name === "admin") {
-                reject("name already taken");
-            } else {
-                resolve({ id: 1, ...userData });
-            }
-        }, 1000);
-    });
-};
-
-const SignUp = (props: Props): JSX.Element => {
+const SignUp = (): JSX.Element => {
     const dispatch = useDispatch();
-    // const { loading, error } = useSelector((state: any) => state.user);
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
-    // Define state with correct type
-    const [formData, setFormData] = useState<FormData>({
+    const initialValues = {
         name: "",
         email: "",
         password: "",
-    });
-
-    // Change handler type definition
-    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    // Submit handler type definition
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-        // e.preventDefault();
-        // dispatch(signupUser({ name, email, password }));
+    const validationSchema = Yup.object({
+        name: Yup.string().required("Name is required"),
+        email: Yup.string().email("Invalid email format").required("Email is required"),
+        password: Yup.string()
+            .min(6, "Password must be at least 6 characters")
+            .required("Password is required"),
+    });
+
+    const handleSubmit = async (values: typeof initialValues, { setSubmitting }: any) => {
+        try {
+            await dispatch(signupUser(values)).unwrap();
+            alert("Signup successful!");
+            navigate("/home");
+        } catch (err: any) {
+            alert(err.message || "Signup failed");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
         <div className="bg-primary-bg h-screen w-screen place-content-center justify-items-center">
-            {false && // Show loading spinner if `loading` is true
+            {isLoading && (
                 <div className="absolute inset-0 flex justify-center items-center z-50">
                     <img
                         src="../../src/assets/loading/catLoading.gif"
                         alt="Loading"
-                        className="w-12 h-12 relative "
+                        className="w-24 h-12 relative "
                     />
                 </div>
-            }
-            <div className={`bg-primary h-3/4 w-3/4 rounded-xl shadow-2xl md:flex md:flex-row ${false ? "blur-sm" : ""}`}>
+            )}
+            <div
+                className={`bg-primary h-2/3 w-3/4 rounded-xl shadow-2xl md:flex md:flex-row ${isLoading ? "blur-sm" : ""
+                    }`}
+            >
                 <div className="md:h-full md:w-1/2 font-parkinsans">
                     <div className="text-2xl pl-10 pt-10">Create Your Account</div>
-                    <div className="pl-10">Enter Credentials To Create Account</div>
+                    <div className="pl-10">Enter your credentials to create an account</div>
                     <div className="place-items-center">
-                        <form className="w-2/3 md:w-1/2 pt-10 md:pt-16 " onSubmit={handleSubmit}>
-                            <div>Name</div>
-                            <Input
-                                name="name"
-                                placeholder="Enter Your Name Here"
-                                type="text"
-                            />
-                            <div className="pt-10">Email</div>
-                            <Input
-                                name="email"
-                                placeholder="Enter Your email Here"
-                                type="email"
-                            />
-                            <div className="pt-10">Password</div>
-                            <Input
-                                name="password"
-                                placeholder="Enter Your Password Here"
-                                type="password"
-                            />
-                            <button type="submit" className="p-[3px] relative mt-10 w-full text-center">
-                                <div className="absolute inset-0 bg-gradient-to-r from-primary-bg to-secondary rounded-lg" />
-                                <div className="px-8 py-2 bg-primary rounded-[6px] relative group transition duration-200 text-black hover:bg-transparent flex flex-row justify-center">
-                                    <div className="pr-3"> SignUp</div>  <Paw />
+                        <Formik
+                            initialValues={initialValues}
+                            validationSchema={validationSchema}
+                            onSubmit={handleSubmit}
+                        >
+                            <Form className="w-2/3 md:w-1/2">
+                                <div className="pt-16">
+                                    <label>Name</label>
+                                    <Input
+                                        name="name"
+                                        type="text"
+                                        placeholder="Enter Your email Here"
+                                    />
+                                    <ErrorMessage
+                                        name="email"
+                                        component="div"
+                                        className="text-red-500 text-sm"
+                                    />
                                 </div>
-                            </button>
-                        </form>
+                                <div className="pt-10">
+                                    <label>Email</label>
+                                    <Input
+                                        name="email"
+                                        type="email"
+                                        placeholder="Enter Your email Here"
+                                    />
+                                    <ErrorMessage
+                                        name="email"
+                                        component="div"
+                                        className="text-red-500 text-sm"
+                                    />
+                                </div>
+                                <div className="pt-10">
+                                    <label>Password</label>
+                                    <Input
+                                        name="password"
+                                        type="password"
+                                        placeholder="Enter Your Password Here"
+                                    />
+                                    <ErrorMessage
+                                        name="password"
+                                        component="div"
+                                        className="text-red-500 text-sm"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="p-[3px] relative mt-10 w-full"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-r from-primary-bg to-secondary rounded-lg" />
+                                    <div className="px-8 py-2 bg-primary rounded-[6px] relative group transition duration-200 text-black hover:bg-transparent flex flex-row justify-center">
+                                        <div className="pr-3">SignUp</div>
+                                        <Paw />
+                                    </div>
+                                </button>
+                            </Form>
+                        </Formik>
                         <div className="pt-7">
-                            Already have an account?{" "}
+                            Already have an account?
                             <Link to="/" className="text-special-text-color pl-4">
                                 SignIn
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className="h2/3 md:h-full md:w-1/2 md:bg-secondary place-content-center justify-items-center rounded-r-xl sm:relative">
-                    <img src="src/assets/images/cat.png" alt="cat" />
+                <div className="md:h-full md:w-1/2 md:bg-secondary place-content-center justify-items-center rounded-r-xl sm:relative">
+                    <img src="src/assets/images/cat.png" alt="dog" />
                 </div>
             </div>
         </div>

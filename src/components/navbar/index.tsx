@@ -4,6 +4,10 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "../navigationBarmenu";
 import { cn } from "../../utils";
 import { products } from "../../data/productList.json";
 import Modal from "../modal";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/user/userSlice"; // Update the path based on your folder structure
+import { RootState } from "../../store/store"; // Update the path based on your folder structure
+import { Link, useNavigate } from "react-router-dom";
 
 export function NavbarDemo() {
     return (
@@ -33,10 +37,15 @@ type ModalInfo = {
 };
 
 function Navbar({ className }: { className?: string }) {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [active, setActive] = useState<string | null>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [modalInfomation, setmodalInformation] = useState<ModalInfo | null>(
         null
+    );
+    const { currentUser, isAuthenticated } = useSelector(
+        (state: RootState) => state.auth
     );
     const OpenModal = (info: ModalInfo) => {
         setIsOpen(true);
@@ -44,6 +53,10 @@ function Navbar({ className }: { className?: string }) {
     };
     const handleCloseModal = () => {
         setIsOpen(false);
+    };
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate("/");
     };
     return (
         <div
@@ -60,8 +73,9 @@ function Navbar({ className }: { className?: string }) {
                 </MenuItem>
                 <MenuItem setActive={setActive} active={active} item="Products">
                     <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-                        {products.map((item) => (
+                        {products.map((item, index) => (
                             <ProductItem
+                                key={index}
                                 title={item.title}
                                 href={item.catogory}
                                 src={item.imgSrc}
@@ -71,8 +85,14 @@ function Navbar({ className }: { className?: string }) {
                 </MenuItem>
                 <MenuItem setActive={setActive} active={active} item="Account">
                     <div className="flex flex-col space-y-4 text-sm">
+                        <div>Welcome, {currentUser?.name || currentUser?.email}</div>
+                        <button
+                            onClick={handleLogout}
+                            className="text-left"
+                        >
+                            Logout
+                        </button>
                         <HoveredLink to="/cart">Go To Cart</HoveredLink>
-                        <HoveredLink to="/">Logout</HoveredLink>
                     </div>
                 </MenuItem>
             </Menu>

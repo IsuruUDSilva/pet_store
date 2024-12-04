@@ -5,11 +5,15 @@ import { featured } from "../../data/featuredItems.json";
 import Modal from "../../components/modal";
 import { useEffect, useState } from "react";
 import ProductListing from "../../components/productListing";
+import { useDispatch } from "react-redux";
+import { RootState } from "../../store/store";
 import { aquatic } from "../../data/aquatic.json";
 import { cat } from "../../data/cat.json";
 import { dog } from "../../data/dog.json";
 import { small_pets } from "../../data/smallPets.json";
 import { birds } from "../../data/bird.json";
+import { addItem } from "../../store/shopingCart/shopingCartSlice";
+import { v4 as uuidv4 } from "uuid";
 
 type Props = {};
 
@@ -20,11 +24,19 @@ type Item = {
     availability: boolean;
 };
 
+
 const Home = (props: Props) => {
+    const dispatch = useDispatch();
     const [isBuying, setIsBuying] = useState(false);
     const [itemBuy, setItemBuy] = useState<Item>();
     const [productList, setproductList] = useState();
     const [catogory, setCatogory] = useState<any>(dog);
+    const handleAddItem = () => {
+        if (itemBuy) {
+            dispatch(addItem({ id: Math.floor(Math.random() * 100) + 1, name: itemBuy.name, price: itemBuy.price, quantity: 1 }));
+            setIsBuying(false);
+        }
+    };
     const handleBuy = (item: Item) => {
         setIsBuying(true);
         setItemBuy(item);
@@ -103,7 +115,7 @@ const Home = (props: Props) => {
                     <img src="src\assets\logos\petStore.webp" alt="" className="h-52" />
                 </div>
                 <p>Are you sure you want to buy this item?</p>
-                <button className="p-[3px] relative mt-10 w-full">
+                <button className="p-[3px] relative mt-10 w-full" onClick={handleAddItem}>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary-bg to-green rounded-lg" />
                     <div className="px-8 py-2  bg-primary rounded-[6px]  relative group transition duration-200 text-black hover:bg-transparent flex flex-row justify-center">
                         <div className="pr-3">

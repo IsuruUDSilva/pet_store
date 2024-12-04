@@ -3,6 +3,7 @@
 import * as React from "react";
 import { cn } from "../../utils";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
+import { Field } from "formik";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> { }
@@ -37,7 +38,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         onMouseLeave={() => setVisible(false)}
         className="p-[2px] rounded-lg transition duration-300 group/input"
       >
-        <input
+        <Field
           type={type}
           className={cn(
             `flex h-10 w-full border-none bg-gray-50 dark:bg-special-text-color text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 

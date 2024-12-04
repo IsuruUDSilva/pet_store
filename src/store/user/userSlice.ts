@@ -39,12 +39,14 @@ export const signupUser = createAsyncThunk<
   User,
   User,
   { state: { auth: AuthState } }
->("auth/signupUser", async (user: User, thunkAPI) => {
+>("auth/signupUser", async (user, thunkAPI) => {
   const state = thunkAPI.getState();
   try {
+    // Call the mock API with the current user and existing users
     const newUser = await mockSignupAPI(user, state.auth.users);
     return newUser;
   } catch (error: any) {
+    // Reject with an error message if signup fails
     return thunkAPI.rejectWithValue(error.message);
   }
 });
