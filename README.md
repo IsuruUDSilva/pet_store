@@ -84,6 +84,7 @@ You can also sign up with a new user.
 src/
 ├── assets/          # Static assets like images and icons
 ├── components/      # Reusable React components
+├── data/            # All data for pages and components
 ├── pages/           # Page-level components
 ├── store/           # Redux store and slices
 ├── styles/          # TailwindCSS configurations and global styles
@@ -97,15 +98,12 @@ src/
 
 1. Log in using the provided credentials (`test@test.com` / `Paswrd@1`) or sign up with new credentials.
 2. Add items to your cart from the product list.
-3. Manage your cart:
-
-- Increase or decrease item quantities.
-- Remove items or clear the entire cart.
-
-4. Proceed to checkout:
-
-- Fill out the form with your name, email, address, and phone.
-- Review the total price and submit the form.
+3. **Manage your cart**:
+   - Increase or decrease item quantities.
+   - Remove items or clear the entire cart.
+4. **Proceed to checkout**:
+   - Fill out the form with your name, email, address, and phone.
+   - Review the total price and submit the form.
 
 ---
 
