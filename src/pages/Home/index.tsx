@@ -59,22 +59,25 @@ const Home = (props: Props) => {
     };
     return (
         <>
-            <div className="w-60 h-40">
-                <img src="src\assets\logos\petStore.webp" alt="" />
+            <div className="pt-20 lg:pt-0 flex items-center lg:block">
+                <img src="src\assets\logos\petStore.webp" alt="" className=" w-24 lg:w-60 lg:h-40" />
+                <div className="lg:hidden text-2xl font-bold text-special-text-color">
+                    Select Your Pet
+                </div>
             </div>
             <NavbarDemo />
             <div className="px-8">
-                <div className="text-2xl font-bold text-special-text-color text-center">
+                <div className="hidden lg:block text-2xl font-bold text-special-text-color text-center">
                     Select Your Pet
                 </div>
                 <HoverEffect items={products} handleClick={productListing} />
             </div>
-            <div className="text-2xl font-bold text-special-text-color pl-28">
+            <div className="text-2xl font-bold text-special-text-color text-center md:text-left lg:pl-28">
                 Featured Products
             </div>
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-col gap-3 md:gap-0 md:flex-row justify-center items-center mb-10 lg:mb-0">
                 {featured.map((item: Item, index) => (
-                    <div key={item.name + index} className="rounded-xl m-10 p-5 w-60 shadow-xl bg-primary-bg">
+                    <div key={item.name + index} className="flex flex-col items-center rounded-xl max-w-52 lg:m-10  lg:p-5 lg:w-60 shadow-xl bg-primary-bg">
                         <div className="h-32 w-40">
                             <img
                                 src="src\assets\logos\petStore.webp"
@@ -82,7 +85,7 @@ const Home = (props: Props) => {
                                 className="w-32"
                             />
                         </div>
-                        <h2 className="h-12 text-left text-2xl md:text-xl font-semibold tracking-[-0.015em] text-special-text-color">
+                        <h2 className="h-12 text-center lg:text-left text-lg md:text-xl font-semibold tracking-[-0.015em] text-special-text-color pb-5">
                             {item.name}
                         </h2>
 

@@ -22,12 +22,12 @@ const ProductListing = (props: Props) => {
           <div className="text-2xl font-bold mb-4 ml-14">
             {category.charAt(0).toUpperCase() + category.slice(1)} Items
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row flex-wrap">
             {props.catogoryData?.[category]?.length > 0 ? (
               props.catogoryData[category].map((item, index) => (
                 <div
                   key={item.name + index}
-                  className="rounded-xl m-10 p-5 w-60 shadow-xl bg-primary-bg"
+                  className="rounded-xl m-10 p-5 w-60 shadow-xl bg-primary-bg flex flex-col items-center"
                 >
                   <div className="h-32 w-40">
                     <img
@@ -36,7 +36,7 @@ const ProductListing = (props: Props) => {
                       className="w-32"
                     />
                   </div>
-                  <h2 className="h-12 text-left text-2xl md:text-xl font-semibold tracking-[-0.015em] text-special-text-color">
+                  <h2 className="h-12 text-center lg:text-left text-lg md:text-xl font-semibold tracking-[-0.015em] text-special-text-color pb-5">
                     {item.name}
                   </h2>
 
