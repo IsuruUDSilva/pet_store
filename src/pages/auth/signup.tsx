@@ -56,8 +56,8 @@ const SignUp = (): JSX.Element => {
                     }`}
             >
                 <div className="md:h-full md:w-1/2 font-parkinsans">
-                    <div className="text-2xl pl-10 pt-10">Create Your Account</div>
-                    <div className="pl-10">Enter your credentials to create an account</div>
+                    <div className="text-xl md:text-2xl px-10 pt-10">Create Your Account</div>
+                    <div className="px-10 text-sm md:text-base">Enter your credentials to create an account</div>
                     <div className="place-items-center">
                         <Formik
                             initialValues={initialValues}
@@ -65,7 +65,7 @@ const SignUp = (): JSX.Element => {
                             onSubmit={handleSubmit}
                         >
                             <Form className="w-2/3 md:w-1/2">
-                                <div className="pt-16">
+                                <div className="pt-5 md:pt-8">
                                     <label>Name</label>
                                     <Input
                                         name="name"
@@ -78,7 +78,7 @@ const SignUp = (): JSX.Element => {
                                         className="text-red-500 text-sm"
                                     />
                                 </div>
-                                <div className="pt-10">
+                                <div className="pt-8">
                                     <label>Email</label>
                                     <Input
                                         name="email"
@@ -91,7 +91,7 @@ const SignUp = (): JSX.Element => {
                                         className="text-red-500 text-sm"
                                     />
                                 </div>
-                                <div className="pt-10">
+                                <div className="pt-8">
                                     <label>Password</label>
                                     <Input
                                         name="password"
@@ -116,7 +116,7 @@ const SignUp = (): JSX.Element => {
                                 </button>
                             </Form>
                         </Formik>
-                        <div className="pt-7">
+                        <div className="pt-7 text-sm md:text-base">
                             Already have an account?
                             <Link to="/" className="text-special-text-color pl-4">
                                 SignIn

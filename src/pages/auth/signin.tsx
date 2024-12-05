@@ -49,8 +49,8 @@ const SignIn = () => {
                     }`}
             >
                 <div className="md:h-full md:w-1/2 font-parkinsans">
-                    <div className="text-2xl pl-10 pt-10">Get Started Now</div>
-                    <div className="pl-10">Enter Credentials To Start</div>
+                    <div className="text-xl md:text-2xl px-10 pt-10">Get Started Now</div>
+                    <div className="px-10 text-sm md:text-base">Enter Credentials To Start</div>
                     <div className="place-items-center">
                         <Formik
                             initialValues={{ email: "", password: "" }}
@@ -58,7 +58,7 @@ const SignIn = () => {
                             onSubmit={handleLogin}
                         >
                             <Form className="w-2/3 md:w-1/2">
-                                <div className="pt-16">
+                                <div className="pt-10">
                                     <label>Email</label>
                                     <Input
                                         name="email"
@@ -96,7 +96,7 @@ const SignIn = () => {
                                 </button>
                             </Form>
                         </Formik>
-                        <div className="pt-7">
+                        <div className="pt-7 text-sm md:text-base">
                             Don't have an account?
                             <Link to="/signup" className="text-special-text-color pl-4">
                                 SignUp
